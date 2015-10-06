@@ -1,39 +1,32 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  1005 上課
 //
-//  Created by 劉坤昶 on 2015/10/5.
+//  Created by 劉坤昶 on 2015/10/6.
 //  Copyright © 2015年 劉坤昶 Johnny. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "MainViewController.h"
 
+@interface MainViewController ()
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *emailText01;
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameText02;
+@property (weak, nonatomic) IBOutlet UITextField *aaa;
 
-@property (weak, nonatomic) IBOutlet UITextField *passwordText03;
+@property (weak, nonatomic) IBOutlet UITextField *bbb;
+
+
 
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-
-
-//    self.signUpBottom.constant = 100 ;
-//    self.loginBottom.constant = 0 ;
-//    self.loginLeft.constant = 0 ;
-//    
-
-
-   
+    // Do any additional setup after loading the view.
+    _aaa.delegate = self ;
+    _bbb.delegate = self ;
 
 }
 
@@ -42,12 +35,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)backgroundTap:(id)sender {
+
+- (IBAction)buttonCreat:(id)sender {
+    // 建立 MainViewController 的實體
+    MainViewController *mainVC =[self.storyboard instantiateViewControllerWithIdentifier:@"second"];
     
-    [self.view endEditing:YES];
-    
-    
-    
+    // 切換畫面
+    [self presentViewController:mainVC animated:NO completion:nil];
     
 }
 
@@ -78,42 +72,16 @@
     [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
-
+    
     
 }
 
 
-
-
-
-
-- (IBAction)buttonLogin:(id)sender {
-   
-    MainViewController *mainVC =[self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+- (IBAction)loginTop:(id)sender {
     
-    
-    [self presentViewController:mainVC animated:NO completion:nil];
-
+    [self.view endEditing:YES] ;
     
 }
-
-
-
-- (IBAction)signupTap:(id)sender {
-
-    [self.view endEditing:YES];
-    
-}
-
-
-
-
-
-
-
-
-
-
 
 
 

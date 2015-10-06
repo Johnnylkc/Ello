@@ -8,9 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController
 
-- (IBAction)backgroundTap:(id)sender;
+
+
+
+
+
+
+
+
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signUpBottom;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBottom;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLeft;
+
 
 @end
 
