@@ -99,11 +99,7 @@
 
 
 
-- (IBAction)signupTap:(id)sender {
 
-    [self.view endEditing:YES];
-    
-}
 
 
 

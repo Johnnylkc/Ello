@@ -54,7 +54,7 @@
     
     [UIView setAnimationDuration:0.25];
     
-    [self.view setFrame:CGRectMake(0, -120 , self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, -114 , self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
     

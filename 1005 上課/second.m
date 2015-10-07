@@ -19,6 +19,19 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *eee;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelHeight;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *emailText;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelEmailWarning;
+
+
+
+
+
+- (IBAction)buttonCreat:(id)sender;
+
 
 
 
@@ -51,15 +64,15 @@
     [self presentViewController:mainVC animated:NO completion:nil];
 }
 
-
+//////以下是鍵盤出現 畫面上移
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField{
     
     [UIView beginAnimations:nil context:nil];
     
-    [UIView setAnimationDuration:0.25];
+    [UIView setAnimationDuration:0.3];
     
-    [self.view setFrame:CGRectMake(0, -140 , self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view setFrame:CGRectMake(0, -180 , self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
     
@@ -72,7 +85,7 @@
     
     [UIView beginAnimations:nil context:nil];
     
-    [UIView setAnimationDuration:0.25];
+    [UIView setAnimationDuration:0.3];
     
     [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
@@ -80,6 +93,9 @@
     
     
 }
+
+/////////////
+
 
 - (IBAction)signupTap:(id)sender {
     
@@ -89,6 +105,48 @@
 
 
 
+
+
+
+
+
+- (IBAction)buttonCreat:(id)sender {
+    
+//
+//    NSString *emailText01 = _emailText.text ;
+//
+//    if ([emailText01 rangeOfString:@".com"].length > 0 ){
+//        self.labelHeight.constant = 0 ;
+//        
+//    }else{
+//        self.labelHeight.constant = 6 ;
+//        
+//        
+//        _labelEmailWarning.text = [ NSString stringWithFormat:@"%@不是我要的答案",emailText01];
+//
+//    }
+  
+    if([self isValidateEmail:self.emailText.text]){
+        self.labelHeight.constant = 0 ;
+    }else{
+        self.labelHeight.constant = 20;
+
+    }
+
+}
+
+////下面是判斷email的方法
+-(BOOL)isValidateEmail:(NSString *)email
+
+{
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
+    
+    return [emailTest evaluateWithObject:email];
+    
+}
 
 
 
